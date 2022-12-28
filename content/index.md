@@ -15,3 +15,5 @@ Thank you for considering antifa-cms. I do not profit from this in any way. I cr
 To see other features of antifa-cms, [check out the stories](story) page that lists the stories currently published by antifa-cms.
 
 Or you can just to read one of the stories [here](story/12192022-jan6-wrapup).
+
+The markdown for this home page can be viewed [here](https://github.com/revolt3d/antifa-cms/blob/main/content/index.md?plain=1).

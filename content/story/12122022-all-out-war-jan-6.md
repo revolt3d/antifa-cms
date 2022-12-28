@@ -7,6 +7,9 @@ Updated: 2022-12-12 09:22
 Img: splc-gop-war.jpg
 Template: story
 ---
+
+This is a sample story, while it's a real story that I wrote for my politics magazine, I put it in the antifa-cms as an example. If you view the markdown for this story, you will see how to link to other websites and include images in your stories. You can view the markdown for this page [here](https://github.com/revolt3d/antifa-cms/blob/main/content/story/12122022-all-out-war-jan-6.md?plain=1). This is part of the antifa-cms tutorial available [here](https://github.com/revolt3d/antifa-cms/blob/main/README.md).
+
 The war has begun, or maybe it never ended. Either way, January 6, 2021 will go down in the history books as the first shots fired in our civil war.
 
 It doesn't matter if you believe this to be true. It doesn't matter if Democratic leadership understands the situation. The facts are the facts - the civil war has begun.

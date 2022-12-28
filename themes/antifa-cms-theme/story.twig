@@ -1,5 +1,6 @@
 {{ include('header.html') }}
-<div id="pubdate">Last Updated {{ meta.date_formatted }}</div>
+<h3>Published  by {{ meta.author }}</h3>
+<h4>Last Updated {{ meta.date_formatted }}</h4>
 {{ content }}
-<h6>Published  by {{ meta.author }}</h6>
+
 {{ include('footer.html') }}

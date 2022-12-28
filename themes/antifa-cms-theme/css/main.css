@@ -1,19 +1,3 @@
-/**
- * Pico's Default Theme
- *
- * Pico's default theme is a bit bare - but that's intentional! The default
- * theme isn't meant for production use, it's actually a template for you to
- * design your own theme around.
- *
- * Pico is a stupidly simple, blazing fast, flat file CMS.
- *
- * @author  Gilbert Pellegrom
- * @author  Daniel Rudolf
- * @link    http://picocms.org
- * @license http://opensource.org/licenses/MIT The MIT License
- * @version 2.1
- */
-
 * {
     box-sizing: border-box;
     border: 0 none;
@@ -24,13 +8,9 @@
 #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px; margin-left:0px}
 #mc_embed_signup form{margin-left:0px;}
 
-/*** BASIC LAYOUT ***/
 html, body { height: 100%; }
-body { display: flex; flex-direction: column; }
-#main { flex: 1 0 auto; }
-#header, #footer { flex: 0 0 auto; }
 
-.container {
+#content {
     padding-top:0.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
@@ -50,17 +30,6 @@ body { display: flex; flex-direction: column; }
     font-size: 2em;
     padding-left:.5em;
 }
-#pagetitle {
-    font-size: 1.5em;
-    font-family: Courier, monospace;
-}
-
-#logo { height: 10.8em; }
-#logo * { display: block; height: 100%; }
-#logo img { min-width: 4.8em; }
-
-#logo + #title h1 { margin: 0.8rem 0; }
-#logo + #title.tagline h1 { margin: 0; }
 
 #nav {
     padding: 0 1em 0 0;
@@ -85,58 +54,22 @@ body { display: flex; flex-direction: column; }
 
 /*** BASIC LAYOUT: FOOTER ***/
 
-#footer {
+header {
+
+}
+
+footer {
     background: #707070;
     color: #C0C0C0;
+    padding: 1em;
 }
 
-#footer a { color: #ddd; }
-#footer a:hover { color: #fff; }
+footer a { color: #ddd; }
+footer a:hover { color: #fff; }
 
-#footer p {
-    margin: 0;
-    padding: 3em 0;
+footer p {
 }
 
-/*** BASIC LAYOUT: EXTRA SMALL DEVICES ***/
-
-@media (max-width: 767px) {
-    #main { padding: 2em 0 1em; }
-
-    #title, #logo { padding: 2em 1.5em 2em 0; }
-    #logo { height: 8.8em; }
-
-    #nav {
-        clear: both;
-        padding: 0;
-    }
-    #nav ul {
-        padding-bottom: 1em;
-    }
-    #nav ul li {
-        display: block;
-        margin-left: 0;
-        text-align: center;
-    }
-    #nav ul li a {
-        display: block;
-        padding: 0.5em 0;
-    }
-
-    .js #nav-toggle {
-        display: block;
-        float: right;
-        width: 2em;
-        margin: 0.6667em 0;
-        font-size: 1.5rem;
-        line-height: 2em;
-        text-align: center;
-        cursor: pointer;
-    }
-    .js #nav-toggle > * { vertical-align: middle;  }
-
-    #footer p { padding: 1em 0; }
-}
 
 /*** TYPOGRAPHY ***/
 
@@ -186,9 +119,9 @@ h1, h2, h3, h4, h6 {
     color: #333;
 }
 h1 { font-size: 2rem; }
-h2 { font-size: 1.7rem; }
-h3 { font-size: 1.4rem; }
-h4 { font-size: 1.1rem; }
+h2 { font-size: 1rem; font-style:italic; }
+h3 { font-size: .9rem; font-weight:normal; }
+h4 { font-size: .9rem; font-weight:normal;}
 h5 { font-size: 1rem; }
 h6 { font-size: 1rem; font-weight: normal; font-style: italic; }
 
@@ -220,41 +153,7 @@ abbr { text-decoration: underline dotted; }
 .image.float-right { float: right; margin: 1em 0 1em 2em; }
 .image img { display: block; width: 100%; }
 
-@media (max-width: 767px) {
-    .image.xsmall { width: 60%; }
-    .image.small { width: 80%; }
-    .image.large, .image.xlarge { width: 100%; }
-    .image.float-left, .image.float-right { float: none; margin: 0 auto; }
-}
 
-/*** TABLES ***/
-
-table { border-spacing: 0; }
-
-td, th {
-    padding: 0.4em 1em;
-    vertical-align: top;
-}
-th {
-    font-weight: bold;
-    text-align: center;
-    background: #f5f5f5;
-    color: #333;
-}
-
-td, th {                                         border: 1px solid #ccc; }
-tr:not(:last-child) td, tr:not(:last-child) th { border-bottom: 0 none; }
-thead tr:last-child th {                         border-bottom: 0 none; }
-td:not(:last-child), th:not(:last-child) {       border-right: 0 none; }
-
-tr:first-child td:first-child, tr:first-child th:first-child { border-top-left-radius: 0.3em; }
-tr:first-child td:last-child, tr:first-child th:last-child {   border-top-right-radius: 0.3em; }
-tbody tr:last-child td:first-child {                           border-bottom-left-radius: 0.3em; }
-tbody tr:last-child td:last-child {                            border-bottom-right-radius: 0.3em; }
-table thead + tbody tr:first-child td {                        border-radius: 0 !important; }
-
-.table-responsive { overflow-x: auto; }
-.table-responsive > table { margin-bottom: 0; }
 
 /*** LISTS ***/
 
@@ -264,11 +163,7 @@ ol, ul {
     padding-left: 1.5em;
 }
 
-ol { padding-left: 2.5em; }
 li { padding-left: 0.5em; }
-
-dt { font-weight: bold; }
-dd { margin-left: 2em; }
 
 /*** CODE ***/
 
@@ -358,63 +253,50 @@ fieldset {
     padding: 1em;
     background: #f5f5f5;
 }
-fieldset legend { padding: 0 0.5em; }
 
-fieldset label, fieldset input, fieldset button,
-fieldset select, fieldset textarea {
-    margin: 0.2em 0.5em;
-}
-fieldset label:first-child, fieldset input:first-child, fieldset button:first-child,
-fieldset select:first-child, fieldset textarea:first-child {
-    margin-left: 0;
-}
-fieldset label:last-child, fieldset input:last-child, fieldset button:last-child,
-fieldset select:last-child, fieldset textarea:last-child {
-    margin-right: 0;
-}
+/*** BASIC LAYOUT: EXTRA SMALL DEVICES ***/
 
-/* Firefox input size fix */
-input::-moz-focus-inner, button::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-}
+@media (max-width: 767px) {
+    #main { padding: 2em 0 1em; }
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "Arial";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
+    #title, #logo { padding: 2em 1.5em 2em 0; }
+    #logo { height: 8.8em; }
 
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
+    #nav {
+        clear: both;
+        padding: 0;
+    }
+    #nav ul {
+        padding-bottom: 1em;
+    }
+    #nav ul li {
+        display: block;
+        margin-left: 0;
+        text-align: center;
+    }
+    #nav ul li a {
+        display: block;
+        padding: 0.5em 0;
+    }
 
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    text-transform: none;
+    .js #nav-toggle {
+        display: block;
+        float: right;
+        width: 2em;
+        margin: 0.6667em 0;
+        font-size: 1.5rem;
+        line-height: 2em;
+        text-align: center;
+        cursor: pointer;
+    }
+    .js #nav-toggle > * { vertical-align: middle;  }
 
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
-
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
-    margin-left: .2em;
-
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
-
-    /* Font smoothing. That was taken from TWBS */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    #footer p { padding: 1em 0; }
 }
 
-.icon-chat:before { content: '\e800'; } /* '' */
-.icon-octocat:before { content: '\f09b'; } /* '' */
-.icon-menu:before { content: '\f0c9'; } /* '' */
-.icon-dollar:before { content: '\f155'; } /* '' */
+@media (max-width: 767px) {
+    .image.xsmall { width: 60%; }
+    .image.small { width: 80%; }
+    .image.large, .image.xlarge { width: 100%; }
+    .image.float-left, .image.float-right { float: none; margin: 0 auto; }
+}

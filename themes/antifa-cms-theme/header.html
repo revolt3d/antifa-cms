@@ -10,7 +10,7 @@
         <link rel="canonical" href="{{ current_page.url }}">
     {% endif %}
     <script src="{{ theme_url }}/js/hpaptcha-api.js" async defer></script>
-    <link rel="stylesheet" href="{{ theme_url }}/css/blank.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ theme_url }}/css/main.min.css" type="text/css">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ meta.title }}">
     <meta property="og:url" content="{{ current_page.url }}">
@@ -23,18 +23,18 @@
     <meta property="og:image:height" content="900">
     <meta property="og:locale" content="en_US">
 </head>
-<body{% if config.theme_config.widescreen %} class="widescreen"{% endif %}>
+<body>
     <div id="header">
         <div id="title"><a href="{{ base_url }}">{{ site_title }}</a></div>
         <div id="nav">
             <ul>
-                <li><a href="https://on.soundcloud.com/VUBzj">Explicit Podcast</a></li>
+                <li><a href="{{ base_url }}/story">Stories</a></li>
                 <li><a href="{{ base_url }}/newsletter-subscribe">Subscribe to Mailing List</a></li>
                 <li><a href="{{ base_url }}/rss.xml">RSS Feed</a></li>
             </ul>
         </div>
-    </div>        
-    <div id="main" role="main">
-        <div class="container">
-            <div id="pagetitle">{% if meta.title != "" %}{{ meta.title }}{% else %}Latest News{% endif %}</div>
+    </div>
+    <div id="content">
+    <h1>{{ meta.title }}</h1>
+    {% if meta.description %}<h2>{{ meta.description }}</h2>{% endif %}
         

@@ -11,7 +11,7 @@
 <managingEditor>editor@example.com</managingEditor>
 <webMaster>webmaster@example.com</webMaster>
 {{ content }}
-{% for page in pages("news")|sort_by("time")|reverse if not page.hidden %}
+{% for page in pages("story")|sort_by("time")|reverse if not page.hidden %}
 <item>
 <title>{{ page.title }}</title>
 <link>{{ page.url }}</link>

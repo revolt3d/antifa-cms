@@ -177,7 +177,7 @@ If you get asked any questions, just accept the default unless you know that doi
 When the updates are done, and that shouldn't take long on a new EC2, install PHP.
 
 ```
-apt-get install php
+apt-get install php php-mbstring php-dom
 ```
 
 Doing so will also install a bunch of other stuff like the Apache webserver, we want those things. So type 'y' when you are asked to continue.
@@ -187,6 +187,28 @@ Do you want to continue? [Y/n] y
 ```
 
 When PHP finishes installing, you should have a working webserver. It won't be working the way we want it to work, but it should work.
+
+Now let's do some tweaking to our Apache webserver.
+
+Our cms needs to have an Apache module activate called mod_rewrite. The module is already on your server, it just needs to be activated. To activate mod_rewrite, createa symlink with the below command as root (sudo su -)
+
+```
+ln -s /etc/apache2/mods-available/rewrite.log /etc/apache2/mods-enabled
+```
+
+It doesn't make sense to keep all of the antifa-cms owned by the root user. Logging into the box, we login as the "ubuntu" user. Let's change the ownership of all of the files and directories in antifa-cms.
+
+Run the following command, but change the path to where you installed your forked antifa-cms.
+
+```
+chown -R ubuntu.ubuntu /var/www/antifa-cms
+```
+
+Now restart Apache and you should be good to go. We're not done setting up the web server, but it should be working with a non-https browser call after the restart.
+
+```
+/etc/init.d/apache2 restart
+```
 
 To test that the webserver is working, find your public IP address by looking at your instance details in the AWS dashboard. I'm specifically not telling you precisely how to find this information in the AWS dashboard because you need to be comfortable navigating the dashboard. 
 
@@ -477,6 +499,10 @@ Here are your ingredients.
 
 This guide is meant for everyone, particularly non-technical people who need a low cost website. Below are some definitions to help those who need the help.
 
+### Apache Webserver
+
+Apache is an open source webserver that has been around for decades. It's not the only webserver you could use to run antifa-cms. I chose Apache for this tutorial because it's the webserver I'm move familiar. Any webserver that can parse PHP could work for this, but simplicity, let's stick with Apache for now.
+
 ### Amazon AWS
 
 In this tutorial, we're going to use Amazon AWS. There are other providers of such services, but AWS is the most familiar to me. I've used Google Compute before, and it works, but I loathe Google as a company. Amazon isn't much better, but it's fine for our purposes. All of these instructions, besides setting AWS infrastructure should be the same.
@@ -515,6 +541,12 @@ Linux is an open source operating system. In terms of running websites - most we
 ### PHP
 
 PHP is a web scripting language. It runs on the webserver. It parses PHP scripts and generates HTML for a user's browser. In this context, PHP is parsing Markdown that we write to render HTML web pages.
+
+### Symlink
+
+Symlinks are links created for a particular file or directory. So rather than copying a file from one directory to another, you can create a symlink. That symlink works pretty much the same as the file it is linking to. Any changes to the source file would be automatically reflected in the symlink.
+
+The command to symlink on Linux is called "ln".
 
 ### Theme
 

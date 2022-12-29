@@ -54,10 +54,56 @@ We're going to create a tiny EC2 that for most of you will fall into the free ti
 7. Setup Auto-publish
 
 #### Login to Amazon AWS
-Describe that.
+
+This step is pretty easy, if you don't already have an Amazon AWS account, you need to create one. [aws.amazon.com](https://aws.amazon.com).
+
+Once you've created your and verified that you can login to Amazon AWS, continue to the next step.
 
 #### Create an Amazon EC2
-Describe that
+
+You have an AWS account and you're logged in as the Root user, not an IAM user.
+
+Click "Services" and select "Compute."
+
+![AWS Services Menu Screenshot](assets/aws-services-menu.jpg)
+
+After you click "Compute" a sub-menu should display with an "EC2" option, click that.
+
+![AWS Services Computer EC2 Menu Screenshot](assets/aws-compute-ec2.jpg)
+
+There's guarantee you will see what I see when I click on the EC2 option, but you should see something on your screen that says "Launch Instance" - click that. By "instance," they mean an EC2.
+
+![AWS Launch Instance Screenshot](assets/aws-launch-ec2.jpg)
+
+Now you need to name your instance. It really doesn't matter what you name it, but it should probably make sense based on what we're setting up. If your website is about butterflies, you name it "My Butterfly Webserver."
+
+![AWS Name Instance Screenshot](assets/aws-launch-ec2-name.jpg)
+
+The next section is selecting the operating system your EC2 will use. You need to select Ubuntu. It doesn't matter if the version you select doesn't match what's in the below screenshot, whatever is the most current version will work.
+
+![AWS EC2 OS Screenshot](assets/aws-ec2-ubuntu.jpg)
+
+The rest of the options for creating an EC2 can be the default values.
+
+The t2.micro is fine for the type of EC2. 
+
+You do need to create an SSH key pair for logging into your new EC2 instance. We're going to connect using SSH, and this is required to make that work.
+
+![AWS EC2 Key Pair Screenshot](assets/aws-ec2-key-pair.jpg)
+
+You can leave all of the defaults as they are when creating a key pair, you do need to provide a name. The name doesn't really matter, you can name it something like "My Keys."
+
+![AWS EC2 Key Pair Options Screenshot](assets/aws-ec2-key-pair-options.jpg)
+
+Under Network Settings, all of the defaults will work, but check the boxes for allowing HTTPS and HTTP. 
+
+![AWS EC2 Network Settings Screenshot](assets/aws-ec2-network-settings.jpg)
+
+Everything else can be the defaults. For storage, you can crank it up to 30GB and still fall into the free tier, but honestly 8GB is probably fine.
+
+Click "Launch Instance."
+
+It will take a few minutes to create the new EC2 instance.
 
 #### Point your domain
 Describe that

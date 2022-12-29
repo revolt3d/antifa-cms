@@ -312,6 +312,12 @@ Move the cursor to the line: DocumentRoot /var/www/html
 
 Remove the html part by pressing 'x' 4 times when the cursor is on the 'h.' Once the html is removed, no press the 'i' key and type the directory where you cloned the cms repo. In our example, that would be test-cms.
 
+Add is to sites-enabled/000-default.conf.
+```
+<Directory /var/www/test-cms>
+  AllowOverride All
+</Directory>
+```
 Once you've change the DocumentRoot to the correct directory location, save the document in vi. To do that, press ESC once, type a color ':' followed by the letter wq and press enter. 
 
 If you find vi to be frustration, some people like pico instead. To open your apache config using pico, run this command.

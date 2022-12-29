@@ -188,18 +188,18 @@ Do you want to continue? [Y/n] y
 
 Now let's do some tweaking to our Apache webserver.
 
-Our cms needs to have an Apache module activate called mod_rewrite. The module is already on your server, it just needs to be activated. To activate mod_rewrite, createa symlink with the below command as root (sudo su -)
+Our cms needs to have an Apache module activated called mod_rewrite. The module is already on your server, it just needs to be activated. To activate mod_rewrite, create a symlink with the below command as root (sudo su -)
 
 ```
 ln -s /etc/apache2/mods-available/rewrite.log /etc/apache2/mods-enabled
 ```
 
-It doesn't make sense to keep all of the antifa-cms owned by the root user. Logging into the box, we login as the "ubuntu" user. Let's change the ownership of all of the files and directories in antifa-cms.
+Now let's tweak permissions on our server. It doesn't make sense to keep all of the antifa-cms owned by the root user. Logging into the box, we login as the "ubuntu" user. Let's change the ownership of all of the files and directories in antifa-cms. This will give our user access to files and directories so we don't to become root to perform our tasks going forward.
 
 Run the following command, but change the path to where you installed your forked antifa-cms.
 
 ```
-chown -R ubuntu.ubuntu /var/www/antifa-cms
+chown -R ubuntu.ubuntu /var/www/test-cms
 ```
 
 Now restart Apache and you should be good to go. We're not done setting up the web server, but it should be working with a non-https browser call after the restart.

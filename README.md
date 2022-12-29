@@ -217,9 +217,9 @@ Accept all of the defaults, but you should name the forked repo something that r
 
 It really doesn't matter what you name the forked repo, but it needs to make sense to you, and if you're going to collaborate with others, it needs to make sense to them.
 
-I'm going to assume all of the forking when as planned and now you're staring at your new forked repo. 
+I'm going to assume all of the forking went as planned and now you're staring at your new forked repo. 
 
-You need to put that forked repo on your new EC2 and you're going to do that with git. This is different than GitHub.com. GitHub.com is built on to of git. The real genius is in git, GitHub.com is just convenient. Technically, you can do all of this without GitHub.com, but I want to leverage GitHub.com as the user interface to our cms.
+You need to put that forked repo on your new EC2, and you're going to do that with git. This is different than GitHub.com. GitHub.com is built on to of git. The real genius is in git, GitHub.com is just convenient. Technically, you can do all of this without GitHub.com, but I want to leverage GitHub.com as the user interface to our cms.
 
 To install the forked antifa-cms repo on our new EC2 server, we first need to SSH into the EC2 instance and 'sudo su -' to become root.
 

@@ -205,9 +205,7 @@ Because of how Git works, let's create a fork of the antifa-cms. The reason for 
 
 I want you to fork the antifa-cms repo, creating your own copy of antifa-cms that you manage yourself. If I make changes to the main antifa-cms, you can update your fork whenever you choose to do so, but that's all down the road.
 
-Login in to GitHub.com and fork antifa-cms.
-
-[antifa-cms GitHub.com repo](https://github.com/revolt3d/antifa-cms)
+Login in to GitHub.com and fork [antifa-cms](https://github.com/revolt3d/antifa-cms).
 
 Look for the Fork button in the upper right of the repo page.
 

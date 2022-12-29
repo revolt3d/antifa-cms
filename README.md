@@ -53,13 +53,13 @@ We're going to create a tiny EC2 that for most of you will fall into the free ti
 6. Create your own content
 7. Setup Auto-publish
 
-#### Login to Amazon AWS
+#### Level 0: Login to Amazon AWS
 
 This step is pretty easy, if you don't already have an Amazon AWS account, you need to create one. [aws.amazon.com](https://aws.amazon.com).
 
 Once you've created your and verified that you can login to Amazon AWS, continue to the next step.
 
-#### Create an Amazon EC2
+#### Level 0: Create an Amazon EC2
 
 You have an AWS account and you're logged in as the Root user, not an IAM user.
 
@@ -127,7 +127,7 @@ To trash an EC2, first change it's state to stopped, and then terminate it. Even
 
 That's one of the great things about this setup for a website is that the actual webserver is disposable. And you really don't need to use Amazon AWS. You can literally run this on any webserver that can serve up PHP. So don't lock yourself in to Amazon because I happened to use it in this tutorial. I use AWS because I'm familiar with it. I personally hate Google and will never use Google Compute, but there are many options out there better than Amazon.
 
-#### Configure the EC2 to be a Webserver
+#### Level 0: Configure the EC2 to be a Webserver
 
 By default a new EC2 doesn't do jack. It's just a barebones server that you can connect to via SSH. Do that, connect via SSH and run the following commands.
 
@@ -200,7 +200,7 @@ You can also run stop and restart apache whenever you need to.
 
 If you still can't see the default apache webpage, and everything seems to be running, I don't have any more tips. You need to search for solutions on your own, using Stackoverflow or something.
 
-#### Install antifa-cms
+#### Level 0: Install antifa-cms
 Because of how Git works, let's create a fork of the antifa-cms. The reason for forking, rather than just cloning the repo, is that we want to do our own commits to our forked repo. If we don't fork antifa-cms, we would be pushing our content and theme changes to that repo, which wouldn't work. I would reject those change requests as inappropriate.
 
 I want you to fork the antifa-cms repo, creating your own copy of antifa-cms that you manage yourself. If I make changes to the main antifa-cms, you can update your fork whenever you choose to do so, but that's all down the road.
@@ -307,7 +307,7 @@ http://43.031.301.90
 
 ![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
 
-#### Create your own Content
+#### Level 0: Create your own Content
 
 Let's keep going. Now create a new story to publish on your new antifa-cms webserver. Don't worry about what it looks like, let's just push a story to your server. 
 
@@ -407,19 +407,11 @@ composer update
 The "git pull" got the latest code changes. The "composer update" does something with the underlying Pico CMS  codebase, but it's wise to run composer update after you pull code from your git repo.
 
 If you created markdown named "firststory.md". 
-#### Point your domain
+#### Level 0: Point your domain
 
 Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.
 
-
-
-#### Configure SSL
-
-#### Install antifa-cms
-
-
-
-#### Setup auto-publish
+#### Level 0: Setup auto-publish
 It's the crontab thing.
 
 ### Level 0: SSL Certificate

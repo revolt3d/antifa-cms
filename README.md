@@ -103,10 +103,108 @@ Everything else can be the defaults. For storage, you can crank it up to 30GB an
 
 Click "Launch Instance."
 
-It will take a few minutes to create the new EC2 instance.
+It will take a few minutes to create the new EC2 instance. If you click on "Instances" in the left side navigation in the AWS dashboard, you should see your new instance. The Status Check will take a few minutes to show green, but the instance should get built fairly quickly. 
+
+Before we move on, let's verify that you can SSH into that new EC2. 
+
+Click "Instances," check the checkbox for your new EC2 and click the "Connect" button. This won't actually connect you, but it will show you how to connect to your new EC2 instance.
+
+Assuming that you have the private key from when you launched your instance, and you have that pem file saved on your laptop or desktop, the "Example" command should work.
+
+For my instance, I created a pem called 12300.pem. It doesn't mean anything - the 12300 - it's just a number I made up. I have that file 12300.pem stored in on my laptop in ~/.ssh.
+
+So when I want to connect to one of my EC2, I could do something like this.
+
+```
+ssh -i "~/.ssh/12300.pem" ubuntu@ec2-33-321-211-321.compute-1.amazonaws.com
+```
+
+If you did everything right, and I explained everything correctly, you should just login with a command similar to that ssh command. You shouldn't be prompted for a password, the key pair is the authentication method.
+
+If this didn't work, you need to go back to your key pair and make sure that's correct. You can delete and create key pairs. You can throw the EC2 you created in the trash and start over. I do that all the time. 
+
+To trash an EC2, first change it's state to stopped, and then terminate it. Even after we build an EC2 and set all of it, there is nothing on the EC2 that we care about. All of our code and content is managed via GitHub.com. So if the server dies unexpectedly, yes, the website will be down, but no data will be lost. 
+
+That's one of the great things about this setup for a website is that the actual webserver is disposable. And you really don't need to use Amazon AWS. You can literally run this on any webserver that can serve up PHP. So don't lock yourself in to Amazon because I happened to use it in this tutorial. I use AWS because I'm familiar with it. I personally hate Google and will never use Google Compute, but there are many options out there better than Amazon.
+
+#### Configure the EC2 to be a Webserver
+
+By default a new EC2 doesn't do jack. It's just a barebones server that you can connect to via SSH. Do that, connect via SSH and run the following commands.
+
+The first thing you need to do is become root. The root user can do anything, particularly install and upgrade system packages, which is what we're going to do.
+
+```
+sudo su -
+```
+
+Whenever I setup a new instance, I make sure all of the packages on the box are up-to-date. To do that run the following command.
+
+```
+apt-get update;apt-get upgrade;
+```
+
+If you get asked any questions, just accept the default unless you know that doing so would be dumb.
+
+When the updates are done, and that shouldn't take long on a new EC2, install PHP.
+
+```
+apt-get install php
+```
+
+Doing so will also install a bunch of other stuff like the Apache webserver, we want those things. So type 'y' when you are asked to continue.
+
+```
+Do you want to continue? [Y/n] y
+```
+
+When PHP finishes installing, you should have a working webserver. It won't be working the way we want it to work, but it should work.
+
+To test that the webserver is working, find your public IP address by looking at your instance details in the AWS dashboard. I'm specifically not telling you precisely how to find this information in the AWS dashboard because you need to be comfortable navigating the dashboard. 
+
+If you public IP address is 43.031.301.90, in your web browser go to
+
+```
+http://43.031.301.90
+```
+
+Note that this you don't want https, and your browser may want to force you to use https. Right now, SSL is not configured on your server, so https will not work. 
+
+If your webserver is working, you should see something like this.
+
+![Apache Default Webserver Page Screenshot](assets/aws-apache-default.jpg)
+
+If it's not work, you need to figure that out.
+
+Some things to check.
+
+1. Is the EC2 running and can you SSH into it?
+2. If you can SSH, run 'sudo su -' followed by 'ps aux | grep apache' You should see apache processes running.
+
+![Apache procs running terminal output Screenshot](assets/aws-apache-procs.jpg)
+
+If you don't see any apache2 processes running, you need to start apache. To do that, run this command as root (that's the 'sudo su -' command).
+
+```
+/etc/init.d/apache2 start
+```
+
+You can also run stop and restart apache whenever you need to.
+
+```
+/etc/init.d/apache2 stop
+```
+
+```
+/etc/init.d/apache2 restart
+```
+
+If you still can't see the default apache webpage, and everything seems to be running, I don't have any more tips. You need to search for solutions on your own, using Stackoverflow or something.
 
 #### Point your domain
-Describe that
+
+Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.
+
+
 
 #### Configure SSL
 

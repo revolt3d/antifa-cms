@@ -50,6 +50,8 @@ Level 0 is the part of the tutorial that is the easiest for non-technical people
 
 Level 0 still requires that I setup a public server to run my website. For antifa-cms, that's not a huge lift, but for a non-technical person, it will be the most difficult  part to accomplish. One caveat is that you don't have to use an Amazon EC2 to run antifa-cms. The only requirements are that wherever you run antifa-cms, the server needs to support PHP, and you need some way to connect to it either via SSH or at least have some access to the server's crontab. I recommend going through this tutorial using an Amazon EC2, if you want to switch later, it will be easy for you to figure out how to make it work. 
 
+Eventually I will add what I'm calling Level 1 antifa-cms. This is where you setup everything locally on your laptop or desktop and can make changes to your website locally before you push to your public server. This allows gives you more control over developing changes for your website. This pattern matches what professional engineers would do to maintain your website. I didn't start with this level of tutorial because it is technically and practically not necessary.
+
 ### Level 0: Requirements
 
 1. GitHub.com account
@@ -485,20 +487,6 @@ For this tutorial, I'm going to use a free SSL certificate from Let's Encrypt. U
 If you want to purchase your own cert, I purchase SSL certificates from this company called ssls.com. A cheap cert can be as little like $4 a year. These are low assurance certificates, which means they will encrypt data, but the end user doesn't have a ton of confidence in the webserver running that cert or you. 
 
 Honestly, most people aren't going to care which SSL cert you use. However, if you skip the SSL cert and just run your website unencrypted, you will get penalized by search engines and many browsers will flag your website is potentially dangerous, and not in a good way.
-
-
-## Level 1 [Optional]
-
-If you want to really get into building your website, or building websites for other people using antifa-cms, you will want to setup a local development environment on your laptop or desktop computer. I only use Mac, so these instructions are assuming you have a Mac. If you are running Linux, you should be able to accomplish this phase. If you are in Windows, I have no doubt that what I'm describing here is possible on Windows, I just simply would have no idea how to do it.
-
-### Requirements
-
-Here are your ingredients.
-
-  1. Computer for local development
-  2. Docker for local development
-  3. Github account (non-professional will work with a caveat - see below)
-  4. Amazon AWS account for production deployment to an EC2
 
 # Vocabulary
 

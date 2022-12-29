@@ -5,7 +5,7 @@ Author: revolt3d
 Date: 2022-12-17 12:22
 Updated: 2022-12-17 12:22
 Img: 
-Template: newsletter-subscribe
+Template: index
 ---
 You can visit this online politics magazine every day and look for new and updated stories. You can subscribe to the [RSS Feed](rss.xml). Or, you can signup to receive an email newsletter.
 

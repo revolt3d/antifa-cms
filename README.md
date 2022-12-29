@@ -44,7 +44,7 @@ I will be the first to admit that this recipe is not the only way to accomplish 
 
 The goal of this process is to create a robust content management system to support a public website with no programming required and extremely low hosting costs.
 
-To make all of this cost-effective, and low-tech, we're going to use a bunch of off-the-shelf tools to make it all work for us. We're going to use GitHub.com as our content management tool. We're going to use a super-fast content management system written in PHP called Pico CMS. And we're going to use some simple Linux commands to glue it all together. That last part is a bit technical, but it's not hard to pull off.
+To make all of this cost-effective, and low-tech, we're going to use a bunch of off-the-shelf tools to make it all work for us. We're going to use GitHub.com as our content management tool. We're going to use a super-fast content management system written in PHP called Pico CMS. And we're going to use a simple Linux server and Apache webserver to glue it all together. That last part is a bit technical, but it's not hard to pull off.
 
 # Level 0
 Level 0 is the part of the tutorial that is the easiest for non-technical people to consume. In Level 0, I do everything via GitHub.com in terms of managing content - adding stories, editing stories, or whatever it is plan to publish. 

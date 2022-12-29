@@ -4,20 +4,20 @@ These are instructions to build a website using existing off-the-shelf software 
 - [About Me](#about-me)
 - [Getting Started](#getting-started)
   - [Level 0](#level-0)
-  - [Level 0: Requirements](#level-0-requirements)
-  - [Level 0: Your Computer Setup](#level-0-your-computer-setup)
-  - [Level 0: Create The Webserver](#level-0-create-the-webserver)
+    - [Level 0: Requirements](#level-0-requirements)
+    - [Level 0: Your Computer Setup](#level-0-your-computer-setup)
+    - [Level 0: Create The Webserver](#level-0-create-the-webserver)
     - [Level 0: Login to Amazon AWS](#level-0-login-to-amazon-aws)
     - [Level 0: Create an Amazon EC2](#level-0-create-an-amazon-ec2)
     - [Level 0: Configure the EC2 to be a Webserver](#level-0-configure-the-ec2-to-be-a-webserver)
     - [Level 0: Install antifa-cms](#level-0-install-antifa-cms)
     - [Level 0: Create your own Content](#level-0-create-your-own-content)
-    - [Level 0: Point your domain](#level-0-point-your-domain)
     - [Level 0: Setup auto-publish](#level-0-setup-auto-publish)
-  - [Level 0: SSL Certificate](#level-0-ssl-certificate)
-- [Level 1 \[Optional\]](#level-1-optional)
-  - [Requirements](#requirements)
+    - [Level 0: Point your domain](#level-0-point-your-domain)
+    - [Level 0: SSL Certificate](#level-0-ssl-certificate)
+- [Level 1](#level-1)
 - [Vocabulary](#vocabulary)
+  - [Apache Webserver](#apache-webserver)
   - [Amazon AWS](#amazon-aws)
   - [Computer](#computer)
   - [Content Management System](#content-management-system)
@@ -27,17 +27,18 @@ These are instructions to build a website using existing off-the-shelf software 
   - [Markdown](#markdown)
   - [Linux](#linux)
   - [PHP](#php)
+  - [Symlink](#symlink)
   - [Theme](#theme)
   - [Twig](#twig)
 
 
-## About Me
+# About Me
 
 I'm a software engineer. I've been building web applications and websites for more than 20 years. I'm old as hell. Over the years, I've learned a few things. One of those things I've learned is how to build a really simple website, requiring essentially no programming skills whatsoever, extremely efficient, cost-effective and fast.
 
 I'm sharing this knowledge with people because creating a simple website is really really expensive. And figuring out how to write code is really time-consuming. With these instructions, you will be able to create a legit website in a few days of tinkering. If you know what you're doing, you can set all of this up in a matter of a couple of hours. 
 
-## Getting Started
+# Getting Started
 
 I will be the first to admit that this recipe is not the only way to accomplish what I'm describing here. All I'm saying is this how I do it, and it works really well.
 
@@ -45,7 +46,7 @@ The goal of this process is to create a robust content management system to supp
 
 To make all of this cost-effective, and low-tech, we're going to use a bunch of off-the-shelf tools to make it all work for us. We're going to use GitHub.com as our content management tool. We're going to use a super-fast content management system written in PHP called Pico CMS. And we're going to use some simple Linux commands to glue it all together. That last part is a bit technical, but it's not hard to pull off.
 
-### Level 0
+## Level 0
 Level 0 is the part of the tutorial that is the easiest for non-technical people to consume. In Level 0, I do everything via GitHub.com in terms of managing content - adding stories, editing stories, or whatever it is plan to publish. 
 
 Level 0 still requires that I setup a public server to run my website. For antifa-cms, that's not a huge lift, but for a non-technical person, it will be the most difficult  part to accomplish. One caveat is that you don't have to use an Amazon EC2 to run antifa-cms. The only requirements are that wherever you run antifa-cms, the server needs to support PHP, and you need some way to connect to it either via SSH or at least have some access to the server's crontab. I recommend going through this tutorial using an Amazon EC2, if you want to switch later, it will be easy for you to figure out how to make it work. 
@@ -84,13 +85,13 @@ We're going to create a tiny EC2 that for most of you will fall into the free ti
 6. Create your own content
 7. Setup Auto-publish
 
-#### Level 0: Login to Amazon AWS
+### Level 0: Login to Amazon AWS
 
 This step is pretty easy, if you don't already have an Amazon AWS account, you need to create one. [aws.amazon.com](https://aws.amazon.com).
 
 Once you've created your and verified that you can login to Amazon AWS, continue to the next step.
 
-#### Level 0: Create an Amazon EC2
+### Level 0: Create an Amazon EC2
 
 You have an AWS account and you're logged in as the Root user, not an IAM user.
 
@@ -158,7 +159,7 @@ To trash an EC2, first change it's state to stopped, and then terminate it. Even
 
 That's one of the great things about this setup for a website is that the actual webserver is disposable. And you really don't need to use Amazon AWS. You can literally run this on any webserver that can serve up PHP. So don't lock yourself in to Amazon because I happened to use it in this tutorial. I use AWS because I'm familiar with it. I personally hate Google and will never use Google Compute, but there are many options out there better than Amazon.
 
-#### Level 0: Configure the EC2 to be a Webserver
+### Level 0: Configure the EC2 to be a Webserver
 
 By default a new EC2 doesn't do jack. It's just a barebones server that you can connect to via SSH. Do that, connect via SSH and run the following commands.
 
@@ -243,7 +244,7 @@ You can also run stop and restart apache whenever you need to.
 
 If you still can't see the default apache webpage, and everything seems to be running, I don't have any more tips. You need to search for solutions on your own, using Stackoverflow or something.
 
-#### Level 0: Install antifa-cms
+### Level 0: Install antifa-cms
 Because of how Git works, let's create a fork of the antifa-cms. The reason for forking, rather than just cloning the repo, is that we want to do our own commits to our forked repo. If we don't fork antifa-cms, we would be pushing our content and theme changes to that repo, which wouldn't work. I would reject those change requests as inappropriate.
 
 I want you to fork the antifa-cms repo, creating your own copy of antifa-cms that you manage yourself. If I make changes to the main antifa-cms, you can update your fork whenever you choose to do so, but that's all down the road.
@@ -372,7 +373,7 @@ http://43.31.301.90
 
 ![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
 
-#### Level 0: Create your own Content
+### Level 0: Create your own Content
 
 Let's keep going. Now create a new story to publish on your new antifa-cms webserver. Don't worry about what it looks like, let's just push a story to your server. 
 
@@ -469,16 +470,39 @@ git pull
 composer update
 ```
 
-The "git pull" got the latest code changes. The "composer update" does something with the underlying Pico CMS  codebase, but it's wise to run composer update after you pull code from your git repo.
+The "git pull" got the latest code changes. The "composer update" does something with the underlying Pico CMS codebase, but it's wise to run composer update after you pull code from your git repo.
 
 If you created markdown named "firststory.md," the URL to your new story is http://43.31.301.90/story/firststory. If your IP address is not 43.31.301.90, change that to whatever your public IP address for your new EC2.
 
-#### Level 0: Point your domain
+### Level 0: Setup auto-publish
+
+While it's fun to login to a server and run the above commands to publish your new or update website content, it shouldn't be required. 
+
+There are a million different ways to solve this problem, and here's a super low-budget way.
+
+On Linux, which is what your server is running, there's a tool called cron. Cron let's us schedule things - executing commands. What we're going to do, to avoid having to login to the server every time we publish content is we're going to setup a cron job to run on an interval to pull down any changes.
+
+I'm the first to admit that this solution is a bit goofy. It would be more efficient to have GitHub.com inform the server that there are changes when they happen, rather than constantly polling GitHub to see if there are changes.
+
+Login to your server. You don't need to be root. We're going to edit the ubuntu user's crontab.
+
+```
+crontab -e
+```
+
+Add a line to the crontab that looks like this.
+
+```
+*/10 * * * * cd /var/www/test-cms;git pull;composer update;
+```
+
+This means that every 10 minutes every day of the week of every month, run that command, which is really three commands. Those are the same commands you ran previously, all just stuck on one line.
+
+Save that crontab, and you're all set to auto-publish changes that are committed to the main branch in GitHub.com. The branch is a key point to note. Only changes in the main branch will be deployed to the server. That means that you can create different branches in GitHub.com to work on content, or presentation, but those changes won't deploy to production until the changes are merged to the main branch. To leverage the full power of branching, you need to be able to run your website on your laptop or desktop. That's what the Level 1 training covers.
+
+### Level 0: Point your domain
 
 Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.
-
-#### Level 0: Setup auto-publish
-It's the crontab thing.
 
 ### Level 0: SSL Certificate
 
@@ -488,63 +512,71 @@ If you want to purchase your own cert, I purchase SSL certificates from this com
 
 Honestly, most people aren't going to care which SSL cert you use. However, if you skip the SSL cert and just run your website unencrypted, you will get penalized by search engines and many browsers will flag your website is potentially dangerous, and not in a good way.
 
+# Level 1
+
+This is not yet written. It's not necessarily necessary, but setting up your website to run your local laptop or desktop is vastly better than doing everything via GitHub.com. That's my opinion. As an engineer, setting everything up locally is the first step. After I got everything working locally, I would setup my production webserver and deploy it.
+
+The reason I didn't start here for antifa-cms is because you don't need to run your website locally. You literally can do everything via GitHub.com. Since I'm trying to reach people who are not super technical, it made sense to me to start with the GitHub.com approach. 
+
+The instruction won't be terribly difficult. It's mostly setting up Docker on your local computer and running a couple of commands.
+
 # Vocabulary
 
 This guide is meant for everyone, particularly non-technical people who need a low cost website. Below are some definitions to help those who need the help.
 
-### Apache Webserver
+## Apache Webserver
 
 Apache is an open source webserver that has been around for decades. It's not the only webserver you could use to run antifa-cms. I chose Apache for this tutorial because it's the webserver I'm move familiar. Any webserver that can parse PHP could work for this, but simplicity, let's stick with Apache for now.
 
-### Amazon AWS
+## Amazon AWS
 
 In this tutorial, we're going to use Amazon AWS. There are other providers of such services, but AWS is the most familiar to me. I've used Google Compute before, and it works, but I loathe Google as a company. Amazon isn't much better, but it's fine for our purposes. All of these instructions, besides setting AWS infrastructure should be the same.
 
-### Computer
+## Computer
 
 You will need a computer to build your content management system. This is where the bulk of the work is done. The computer you use should be running Mac or Linux. I'm certain these instructions would work with Windows, but I haven't used Windows in many, many years.
 
-### Content Management System
+## Content Management System
 
 A content management system does what it sounds like it would do - a system that manages content. In this context, content is a web page. Content could also include images that are diplayed on the web page. A content management system makes managing the web pages (e.g. content) easier.
 
 That's what we're building here - a content management system with publishing capabilities.
 
-### Docker
+## Docker
 
 Docker is this amazing tool that you run on your computer that let's you spin up virtual servers on your computer. These little servers run pretty much like a real server will operated. We will use Docker for testing and publishing content.
 
 This part of the process does potentially get technical, if something doesn't work correctly.
 
-### Github
+## Github
 For this recipe you need a GitHub.com account. 
 
-#### Can I use a free GitHub.com account?
+### Can I use a free GitHub.com account?
 
 The short answer is, and the long answer is maybe. It comes down to whether you want a private repository for your website code and content, or is a public repo OK? Without a paid subscription to GitHub.com, all of your code repositories are public. What that means is that anyone on GitHub.com can see your code repository. They can even propose changes to your repository, but you can just reject them if the changes aren't useful. For all intents and purposes, no one is likely to care about your GitHub.com repository. If it matters to you that your website code not be in a public repository, then pay GitHub.com $4 a month for a professional account and create a private repo.
 
-### Markdown
+## Markdown
 
 Markdown is a simple document formatting standard. It is what this file you are reading is written. You can learn more about Markdown [here](https://www.markdownguide.org/cheat-sheet/). What's great about using markdown to build new web pages - to add more content - is that it completely separates the presentation from the content. In Markdown we can structure our story content to be positioned or appear a certain way, but how that will actually be made to look like it's supposed is handled by the theme. So if you want to find where the HTML is for antifa-cms, it's in the themes/antifa-cms-theme directory. Everyone is encouraged to create their own themes, or use one of the already built Pico CMS themes found [here](https://picocms.org/themes/). Because antifa-cms is based on Pico CMS, any of those themes should work fine.
 
-### Linux
+## Linux
 
 Linux is an open source operating system. In terms of running websites - most web servers are running some version of Linux.
 
-### PHP
+## PHP
 
 PHP is a web scripting language. It runs on the webserver. It parses PHP scripts and generates HTML for a user's browser. In this context, PHP is parsing Markdown that we write to render HTML web pages.
 
-### Symlink
+## Symlink
 
 Symlinks are links created for a particular file or directory. So rather than copying a file from one directory to another, you can create a symlink. That symlink works pretty much the same as the file it is linking to. Any changes to the source file would be automatically reflected in the symlink.
 
 The command to symlink on Linux is called "ln".
 
-### Theme
+## Theme
 
 The theme in antifa-cms is where the design of the website is implemented. This where the HTML and the CSS files are located. Poke around at the very simle antifa-cms-theme, and check out the available Pico CMS [themes](https://picocms.org/themes/). Pico CMS has some minimal documentation about themes [here](https://picocms.org/docs/#themes). 
 
-### Twig
+## Twig
 
 The themes use the Twig templating system. Twig is a really a powerful and major templating system. If you decide to build your own theme, or if you want to modify an existing theme, you should know the basics of Twig. Twig lets you do a lot. The Twig documentation is available [here](https://twig.symfony.com/doc/).

@@ -331,7 +331,7 @@ Save your config changes and restart apache.
 Now if you reload the webpage you had pointing to your EC2 public IP address, you should see the default antifa-cms home page.
 
 ```
-http://43.031.301.90
+http://43.31.301.90
 ```
 
 ![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
@@ -435,7 +435,8 @@ composer update
 
 The "git pull" got the latest code changes. The "composer update" does something with the underlying Pico CMS  codebase, but it's wise to run composer update after you pull code from your git repo.
 
-If you created markdown named "firststory.md". 
+If you created markdown named "firststory.md," the URL to your new story is http://43.31.301.90/story/firststory. If your IP address is not 43.31.301.90, change that to whatever your public IP address for your new EC2.
+
 #### Level 0: Point your domain
 
 Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.

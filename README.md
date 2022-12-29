@@ -312,7 +312,7 @@ Move the cursor to the line: DocumentRoot /var/www/html
 
 Remove the html part by pressing 'x' 4 times when the cursor is on the 'h.' Once the html is removed, no press the 'i' key and type the directory where you cloned the cms repo. In our example, that would be test-cms.
 
-Add is to sites-enabled/000-default.conf.
+Add this to sites-enabled/000-default.conf.
 
 ```
 <Directory /var/www/test-cms>

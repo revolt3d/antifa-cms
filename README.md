@@ -219,7 +219,7 @@ It really doesn't matter what you name the forked repo, but it needs to make sen
 
 I'm going to assume all of the forking went as planned and now you're staring at your new forked repo. 
 
-You need to put that forked repo on your new EC2, and you're going to do that with git. This is different than GitHub.com. GitHub.com is built on top of git. The real genius is in git, GitHub.com is just convenient. Technically, you can do all of this without GitHub.com, but I want to leverage GitHub.com as the user interface to our cms to publish new content, or change and delete existing content.
+You need to put that forked repo on your new EC2, and you're going to do that with git. Git is different than GitHub.com. GitHub.com is built on top of git. The real genius is in git, GitHub.com is just convenient. Technically, you can do all of this without GitHub.com, but I want to leverage GitHub.com as the user interface to our cms to publish new content, or change and delete existing content.
 
 To install the forked antifa-cms repo on our new EC2 server, we first need to SSH into the EC2 instance and 'sudo su -' to become root.
 
@@ -307,6 +307,106 @@ http://43.031.301.90
 
 ![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
 
+#### Create your own Content
+
+Let's keep going. Now create a new story to publish on your new antifa-cms webserver. Don't worry about what it looks like, let's just push a story to your server. 
+
+We're going to create the content in GitHub.com, and when it's ready, we're going to pull the new content down to the EC2 instance cloned repo.
+
+Sign into GitHub.com and view your forked antifa-cms repo. Click on the content directory. This where all of your content will live as markdown text files. 
+
+Now click on the story directory located in the content directory. In my sample cms, I put all of my stories in this story sub-directory. Doing so makes it easy for me to distinction between a "story" and maybe just a webpage, like the homepage for the antifa-crm. To see the homepage markdown, before you click into the story directory, open the file named index.md.
+
+When you first view the index.md, or any markdown in GitHub, GitHub doesn't show you the markdown, it tries to parse the markdown. You want to see the markdown, so click the button to "Display the source blob."
+
+![GitHub.com Show Source Blob Button Screenshot](assets/antifa-cms-blob.jpg)
+
+This will let you see what the actual markdown looks like for the antifa-cms default homepage. 
+
+It should look like this.
+
+![Homepage Markdown Screenshot](assets/antifa-cms-markdown.jpg)
+
+The top section of the document is required for all content. 
+
+```
+---
+Title: antifa-cms Home Page Example
+Description: 
+Author: Editor
+Date: 2021-12-15 10:31:03
+Template: index
+---
+```
+
+Title comes through in the HTML as an H1.
+
+Description comes through as an H2, if it's set, it's optional.
+
+Author shows up as the byline for the story.
+
+Date is the date the story was published, it could be updated when the story is changed.
+
+Template is key, this what tells the CMS which template to use to rend this page. The 'index' template is the most basic template. It's perfect for homepages, or about us pages, content that is pretty static. In your implementation, this could be totally different.
+
+Now let's create our own story in the content/story directory. In GitHub.com, you should be looking at the story directory in GitHub.com, and it should look like this.
+
+![GitHub.com story directory screenshot](assets/antifa-story-directory.jpg)
+
+Now click on that "Add File" button, and select the "Create new file" option.
+
+For simplicity, let's call the new file "firststory.md". 
+
+First thing you need to do is add the story meta data mentioned above.
+
+```
+---
+Title: My First Story
+Description: It feels so good to get things done.
+Author: Penny Lane
+Date: 2021-12-22 10:31:03
+Template: story
+---
+```
+
+Note that I chose the "story" template instead of index. The story template includes the byline for the author and the publish date (see above Date field in the story meta data)
+
+Now let's add our unique content to this story.
+
+```
+---
+Title: My First Story
+Description: It feels so good to get things done.
+Author: Penny Lane
+Date: 2021-12-22 10:31:03
+Template: story
+---
+
+![McConnell Is A Racist Confederate Flag Photo](%assets_url%/mcconnell-confederate-flag.jpg)
+
+That above line is how you include an image.
+
+This antifa-cms is bad ass. It's so easy to get running and it's efficient with cloud computing resources to save money.
+
+You can learn more about antifa-cms, but visiting our GitHub.com repo [antifa-cms](https://github.com/revolt3d/antifa-cms)
+
+```
+
+Once you have the markdown set, it's time to publish your new story on your EC2.
+
+To do that, you're going to SSH to the EC2 and pull down the changes from GitHub.com.
+
+So SSH to your EC2 like you've been doing all along and run the following command, adjusting it to meet your needs.
+
+```
+cd /var/www/test-cms
+git pull
+composer update
+```
+
+The "git pull" got the latest code changes. The "composer update" does something with the underlying Pico CMS  codebase, but it's wise to run composer update after you pull code from your git repo.
+
+If you created markdown named "firststory.md". 
 #### Point your domain
 
 Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.
@@ -317,7 +417,7 @@ Technically you don't have to do this, you could just access your website with t
 
 #### Install antifa-cms
 
-#### Create your own Content
+
 
 #### Setup auto-publish
 It's the crontab thing.

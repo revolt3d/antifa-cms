@@ -167,13 +167,13 @@ If your public IP address is 43.031.301.90, in your web browser go to
 http://43.031.301.90
 ```
 
-Note that this you don't want https, and your browser may want to force you to use https. Right now, SSL is not configured on your server, so https will not work. 
+Note that this time, you don't want to use https. Your browser force you to use https, but it worn't work, yet. Right now, SSL is not configured on your server, so https will fail. 
 
 If your webserver is working, you should see something like this.
 
 ![Apache Default Webserver Page Screenshot](assets/aws-apache-default.jpg)
 
-If it's not work, you need to figure that out.
+If it's not working, you need to figure that out.
 
 Some things to check.
 
@@ -199,6 +199,115 @@ You can also run stop and restart apache whenever you need to.
 ```
 
 If you still can't see the default apache webpage, and everything seems to be running, I don't have any more tips. You need to search for solutions on your own, using Stackoverflow or something.
+
+#### Install antifa-cms
+Because of how Git works, let's create a fork of the antifa-cms. The reason for forking, rather than just cloning the repo, is that we want to do our own commits to our forked repo. If we don't fork antifa-cms, we would be pushing our content and theme changes to that repo, which wouldn't work. I would reject those change requests as inappropriate.
+
+I want you to fork the antifa-cms repo, creating your own copy of antifa-cms that you manage yourself. If I make changes to the main antifa-cms, you can update your fork whenever you choose to do so, but that's all down the road.
+
+Login in to GitHub.com and fork antifa-cms.
+
+[antifa-cms GitHub.com repo](https://github.com/revolt3d/antifa-cms)
+
+Look for the Fork button in the upper right of the repo page.
+
+Here's what the fork screen looks like. 
+
+![GitHub.com Fork Screen Screengrab](assets/antifa-cms-fork.jpg)
+
+Accept all of the defaults, but you should name the forked repo something that relates to what you're actually doing with your website. For instance, if your website is about Antifascist Political Philosophy, call the repo 'antifa-poli-sci' or something like that. If it's about the migratory patterns of monarch butterflies, you call name is 'monarch-butt'. 
+
+It really doesn't matter what you name the forked repo, but it needs to make sense to you, and if you're going to collaborate with others, it needs to make sense to them.
+
+I'm going to assume all of the forking when as planned and now you're staring at your new forked repo. 
+
+You need to put that forked repo on your new EC2 and you're going to do that with git. This is different than GitHub.com. GitHub.com is built on to of git. The real genius is in git, GitHub.com is just convenient. Technically, you can do all of this without GitHub.com, but I want to leverage GitHub.com as the user interface to our cms.
+
+To install the forked antifa-cms repo on our new EC2 server, we first need to SSH into the EC2 instance and 'sudo su -' to become root.
+
+This part could get a little technical, so take it slow.
+
+As an overview for what we're about to do is that we're going to configure our Apache webserver to run our forked antifa-cms code, instead of that default Apache web page we saw earlier. To do this, we're going to run a few commands from the command-line on our EC2 as root.
+
+Just delete the entire html directory, we don't need it.
+
+```
+cd /var/www; rm -rf html;
+```
+
+Now clone our forked antifa-cms into the /var/www/ directory. The clone command will look something like this. You will need to adjust it for your repo name.
+
+```
+git clone https://github.com/hack3r3d/test-cms.git
+```
+
+I recommend using the https GitHub.com URL. There's an SSH one too, but this will suffice for what we're doing, which is only pulling from GitHub.com to the server. We won't be editng files on the server and pushing them to the repo - it's one-directional.
+
+To find the https URL for your repo, click the "Code" button.
+
+![GitHub.com Clone Screengrab](assets/antifa-cms-clone.jpg)
+
+Now back to the server and our SSH client as the root user our freshly cloned repo.
+
+For this next step, we are going to need composer installed. Composer is a package manager for PHP packages. What that means is that it allows us to install stuff, including our cms repo.
+
+```
+apt-get install composer
+```
+
+That should install composer and all of its dependencies.
+
+Looking back at the clone command, If I used that exact command to clone a repo named test-cms in the /var/www directory, there would be a test-cms directory in the /var/www directory. Let's change directories to /var/www/test-cms directory.
+
+```
+cd /var/www/test-cms
+```
+
+Now run the composer to setup the antifa-cms system.
+
+```
+composer update
+```
+
+Because we're running this as the root user, composer will warn us about it. It's OK, just type 'yes'. We will fix this problem in a bit. For now, let's see if we can make the cms run.
+
+We removed the default html directory and created a new directory under /var/www for our cms. Now we need to configure apache to know about our new cms code, and use it instead of the form html directory, that we deleted.
+
+We're going to use an application called vi. This is an editor you should become familiar with, if you haven't already. 
+
+Open the apache server configuration file.
+
+```
+vi /etc/apache2/sites-enabled/000-default.conf
+```
+
+Move the cursor to the line: DocumentRoot /var/www/html
+
+Remove the html part by pressing 'x' 4 times when the cursor is on the 'h.' Once the html is removed, no press the 'i' key and type the directory where you cloned the cms repo. In our example, that would be test-cms.
+
+Once you've change the DocumentRoot to the correct directory location, save the document in vi. To do that, press ESC once, type a color ':' followed by the letter wq and press enter. 
+
+If you find vi to be frustration, some people like pico instead. To open your apache config using pico, run this command.
+
+```
+pico /etc/apache2/sites-enabled/000-default.conf
+```
+
+Pico is more user-friendly, but I just prefer vi.
+
+Save your config changes and restart apache. 
+
+``` 
+/etc/init.d/apache2 restart
+```
+
+Now if you reload the webpage you had pointing to your EC2 public IP address, you should see the default antifa-cms home page.
+
+```
+http://43.031.301.90
+```
+
+![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
 
 #### Point your domain
 

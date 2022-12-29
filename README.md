@@ -194,14 +194,6 @@ Our cms needs to have an Apache module activated called mod_rewrite. The module 
 ln -s /etc/apache2/mods-available/rewrite.log /etc/apache2/mods-enabled
 ```
 
-Now let's tweak permissions on our server. It doesn't make sense to keep all of the antifa-cms owned by the root user. Logging into the box, we login as the "ubuntu" user. Let's change the ownership of all of the files and directories in antifa-cms. This will give our user access to files and directories so we don't to become root to perform our tasks going forward.
-
-Run the following command, but change the path to where you installed your forked antifa-cms.
-
-```
-chown -R ubuntu.ubuntu /var/www/test-cms
-```
-
 Now restart Apache and you should be good to go. We're not done setting up the web server, but it should be working with a non-https browser call after the restart.
 
 ```
@@ -296,7 +288,43 @@ To find the https URL for your repo, click the "Code" button.
 
 Now back to the server and our SSH client as the root user our freshly cloned repo.
 
-For this next step, we are going to need composer installed. Composer is a package manager for PHP packages. What that means is that it allows us to install stuff, including our cms repo.
+We removed the default html directory and created a new directory under /var/www for our cms. We need to configure Apache to know about our new cms code, and use it instead of the now-deleted html directory.
+
+We're going to use an application called vi. This is an editor you should become familiar with, if you haven't already. 
+
+Open the Apache server configuration file.
+
+```
+vi /etc/apache2/sites-enabled/000-default.conf
+```
+
+Move the cursor to the line: DocumentRoot /var/www/html and place the cursor on the 'h' in html.
+
+Remove the html part by pressing 'x.' Once html is removed, press the 'i' key and type the directory where you cloned the cms repo. In our example, that would be test-cms.
+
+Still editing the sites-enabled/000-default.conf Apache config, add this inside the VirtualHost section port 80. We're still in unecrypted world.
+
+```
+<Directory /var/www/test-cms>
+  AllowOverride All
+</Directory>
+```
+
+Once you've change the DocumentRoot to the correct directory location, save the document in vi. To do that, press ESC once, type a colon ":" followed by the letters "wq" and press enter. 
+
+If you find vi to be frustration, some people like pico instead. To open your Apache config using pico, run this command. Pico is more user-friendly, but I just prefer vi.
+
+```
+pico /etc/apache2/sites-enabled/000-default.conf
+```
+
+Save your config changes and restart apache. 
+
+```
+/etc/init.d/apache2 restart
+```
+
+For this next step, we are going to need composer installed. Composer is a package manager for PHP packages. What that means is that it allows us to install PHP packages that our underlying Pico CMS needs to function.
 
 ```
 apt-get install composer
@@ -304,52 +332,31 @@ apt-get install composer
 
 That should install composer and all of its dependencies.
 
-Looking back at the clone command, If I used that exact command to clone a repo named test-cms in the /var/www directory, there would be a test-cms directory in the /var/www directory. Let's change directories to /var/www/test-cms directory.
+Before we move on, let's tweak some permissions on our server. It doesn't make sense to keep all of the antifa-cms files and directories owned by the root user, which has been the case up until now. Logging into the box, we login as the "ubuntu" user. Let's change the ownership of all of the files and directories in our forked antifa-cms. This will give our user access to files and directories so we don't to become root to perform our tasks going forward.
+
+Run the following command, but change the path to where you installed your forked antifa-cms.
+
+```
+chown -R ubuntu.ubuntu /var/www/test-cms
+```
+
+Now run the following exit command, to return your login to the "ubuntu" user and no longer be root. It's safer this way, and it makes life easier to just be a normal user. We needed to be root to get Apache and everything working correctly.
+
+```
+exit
+```
+
+Using my test-cms example, change directories to your forked antifa-cms directory.
 
 ```
 cd /var/www/test-cms
 ```
 
-Now run the composer to setup the antifa-cms system.
+Now run the composer to setup the antifa-cms system. Doing this will install all of the necessary PHP packages that the underlying Pico CMS needs to operate.
 
 ```
 composer update
 ```
-
-Because we're running this as the root user, composer will warn us about it. It's OK, just type 'yes'. We will fix this problem in a bit. For now, let's see if we can make the cms run.
-
-We removed the default html directory and created a new directory under /var/www for our cms. Now we need to configure apache to know about our new cms code, and use it instead of the form html directory, that we deleted.
-
-We're going to use an application called vi. This is an editor you should become familiar with, if you haven't already. 
-
-Open the apache server configuration file.
-
-```
-vi /etc/apache2/sites-enabled/000-default.conf
-```
-
-Move the cursor to the line: DocumentRoot /var/www/html
-
-Remove the html part by pressing 'x' 4 times when the cursor is on the 'h.' Once the html is removed, no press the 'i' key and type the directory where you cloned the cms repo. In our example, that would be test-cms.
-
-Add this to sites-enabled/000-default.conf.
-
-```
-<Directory /var/www/test-cms>
-  AllowOverride All
-</Directory>
-```
-Once you've change the DocumentRoot to the correct directory location, save the document in vi. To do that, press ESC once, type a color ':' followed by the letter wq and press enter. 
-
-If you find vi to be frustration, some people like pico instead. To open your apache config using pico, run this command.
-
-```
-pico /etc/apache2/sites-enabled/000-default.conf
-```
-
-Pico is more user-friendly, but I just prefer vi.
-
-Save your config changes and restart apache. 
 
 ``` 
 /etc/init.d/apache2 restart

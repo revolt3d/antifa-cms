@@ -500,7 +500,7 @@ Here are your ingredients.
   3. Github account (non-professional will work with a caveat - see below)
   4. Amazon AWS account for production deployment to an EC2
 
-## Vocabulary
+# Vocabulary
 
 This guide is meant for everyone, particularly non-technical people who need a low cost website. Below are some definitions to help those who need the help.
 

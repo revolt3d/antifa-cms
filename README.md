@@ -161,7 +161,7 @@ When PHP finishes installing, you should have a working webserver. It won't be w
 
 To test that the webserver is working, find your public IP address by looking at your instance details in the AWS dashboard. I'm specifically not telling you precisely how to find this information in the AWS dashboard because you need to be comfortable navigating the dashboard. 
 
-If you public IP address is 43.031.301.90, in your web browser go to
+If your public IP address is 43.031.301.90, in your web browser go to
 
 ```
 http://43.031.301.90

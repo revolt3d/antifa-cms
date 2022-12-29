@@ -1,4 +1,4 @@
-# DRAFT December 22, 2022 THIS IS NOT COMPLETE
+# DRAFT December 27, 2022 THIS IS NOT COMPLETE YET, BUT IT'S GETTING THERE
 
 These are instructions to build a website using existing off-the-shelf software and no programming skills. This recipe builds out more than merely a website. In the end, you will have a complete content management and publishing system.
 

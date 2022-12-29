@@ -3,18 +3,18 @@ DRAFT December 27, 2022 THIS IS NOT COMPLETE YET, BUT IT'S GETTING THERE
 These are instructions to build a website using existing off-the-shelf software and no programming skills. This recipe builds out more than merely a website. In the end, you will have a complete content management and publishing system.
 - [About Me](#about-me)
 - [Getting Started](#getting-started)
-  - [Level 0](#level-0)
-    - [Level 0: Requirements](#level-0-requirements)
-    - [Level 0: Your Computer Setup](#level-0-your-computer-setup)
-    - [Level 0: Create The Webserver](#level-0-create-the-webserver)
-    - [Level 0: Login to Amazon AWS](#level-0-login-to-amazon-aws)
-    - [Level 0: Create an Amazon EC2](#level-0-create-an-amazon-ec2)
-    - [Level 0: Configure the EC2 to be a Webserver](#level-0-configure-the-ec2-to-be-a-webserver)
-    - [Level 0: Install antifa-cms](#level-0-install-antifa-cms)
-    - [Level 0: Create your own Content](#level-0-create-your-own-content)
-    - [Level 0: Setup auto-publish](#level-0-setup-auto-publish)
-    - [Level 0: Point your domain](#level-0-point-your-domain)
-    - [Level 0: SSL Certificate](#level-0-ssl-certificate)
+- [Level 0](#level-0)
+  - [Level 0: Requirements](#level-0-requirements)
+  - [Level 0: Your Computer Setup](#level-0-your-computer-setup)
+  - [Level 0: Create The Webserver](#level-0-create-the-webserver)
+  - [Level 0: Login to Amazon AWS](#level-0-login-to-amazon-aws)
+  - [Level 0: Create an Amazon EC2](#level-0-create-an-amazon-ec2)
+  - [Level 0: Configure the EC2 to be a Webserver](#level-0-configure-the-ec2-to-be-a-webserver)
+  - [Level 0: Install antifa-cms](#level-0-install-antifa-cms)
+  - [Level 0: Create your own Content](#level-0-create-your-own-content)
+  - [Level 0: Setup auto-publish](#level-0-setup-auto-publish)
+  - [Level 0: Point your domain](#level-0-point-your-domain)
+  - [Level 0: SSL Certificate](#level-0-ssl-certificate)
 - [Level 1](#level-1)
 - [Vocabulary](#vocabulary)
   - [Apache Webserver](#apache-webserver)
@@ -46,20 +46,20 @@ The goal of this process is to create a robust content management system to supp
 
 To make all of this cost-effective, and low-tech, we're going to use a bunch of off-the-shelf tools to make it all work for us. We're going to use GitHub.com as our content management tool. We're going to use a super-fast content management system written in PHP called Pico CMS. And we're going to use some simple Linux commands to glue it all together. That last part is a bit technical, but it's not hard to pull off.
 
-## Level 0
+# Level 0
 Level 0 is the part of the tutorial that is the easiest for non-technical people to consume. In Level 0, I do everything via GitHub.com in terms of managing content - adding stories, editing stories, or whatever it is plan to publish. 
 
 Level 0 still requires that I setup a public server to run my website. For antifa-cms, that's not a huge lift, but for a non-technical person, it will be the most difficult  part to accomplish. One caveat is that you don't have to use an Amazon EC2 to run antifa-cms. The only requirements are that wherever you run antifa-cms, the server needs to support PHP, and you need some way to connect to it either via SSH or at least have some access to the server's crontab. I recommend going through this tutorial using an Amazon EC2, if you want to switch later, it will be easy for you to figure out how to make it work. 
 
 Eventually I will add what I'm calling Level 1 antifa-cms. This is where you setup everything locally on your laptop or desktop and can make changes to your website locally before you push to your public server. This allows gives you more control over developing changes for your website. This pattern matches what professional engineers would do to maintain your website. I didn't start with this level of tutorial because it is technically and practically not necessary.
 
-### Level 0: Requirements
+## Level 0: Requirements
 
 1. GitHub.com account
 2. An Amazon AWS account
 3. A laptop or desktop computer that has an SSH client installed
 
-### Level 0: Your Computer Setup
+## Level 0: Your Computer Setup
 
 In Level 0, the only thing you need to be able to do is SSH to your Amazon EC2 and a web browser.
 
@@ -71,7 +71,7 @@ ssh -V
 
 If that command shows an error, you need to install SSH. How do you install SSH on a Mac? I have no idea, it should be installed, if it's not, you either have a really, really old Mac or removed SSH for some reason. Linux users should know how to install SSH. Windows users will need to figure it out.
 
-### Level 0: Create The Webserver
+## Level 0: Create The Webserver
 
 Creating an Amazon EC2 is easy. It's a couple of clicks. But making it work entirely as a web server will require a bit of work. 
 
@@ -85,13 +85,13 @@ We're going to create a tiny EC2 that for most of you will fall into the free ti
 6. Create your own content
 7. Setup Auto-publish
 
-### Level 0: Login to Amazon AWS
+## Level 0: Login to Amazon AWS
 
 This step is pretty easy, if you don't already have an Amazon AWS account, you need to create one. [aws.amazon.com](https://aws.amazon.com).
 
 Once you've created your and verified that you can login to Amazon AWS, continue to the next step.
 
-### Level 0: Create an Amazon EC2
+## Level 0: Create an Amazon EC2
 
 You have an AWS account and you're logged in as the Root user, not an IAM user.
 
@@ -159,7 +159,7 @@ To trash an EC2, first change it's state to stopped, and then terminate it. Even
 
 That's one of the great things about this setup for a website is that the actual webserver is disposable. And you really don't need to use Amazon AWS. You can literally run this on any webserver that can serve up PHP. So don't lock yourself in to Amazon because I happened to use it in this tutorial. I use AWS because I'm familiar with it. I personally hate Google and will never use Google Compute, but there are many options out there better than Amazon.
 
-### Level 0: Configure the EC2 to be a Webserver
+## Level 0: Configure the EC2 to be a Webserver
 
 By default a new EC2 doesn't do jack. It's just a barebones server that you can connect to via SSH. Do that, connect via SSH and run the following commands.
 
@@ -244,7 +244,7 @@ You can also run stop and restart apache whenever you need to.
 
 If you still can't see the default apache webpage, and everything seems to be running, I don't have any more tips. You need to search for solutions on your own, using Stackoverflow or something.
 
-### Level 0: Install antifa-cms
+## Level 0: Install antifa-cms
 Because of how Git works, let's create a fork of the antifa-cms. The reason for forking, rather than just cloning the repo, is that we want to do our own commits to our forked repo. If we don't fork antifa-cms, we would be pushing our content and theme changes to that repo, which wouldn't work. I would reject those change requests as inappropriate.
 
 I want you to fork the antifa-cms repo, creating your own copy of antifa-cms that you manage yourself. If I make changes to the main antifa-cms, you can update your fork whenever you choose to do so, but that's all down the road.
@@ -373,7 +373,7 @@ http://43.31.301.90
 
 ![antifa-cms default home page screenshot](assets/antifa-default-home.jpg)
 
-### Level 0: Create your own Content
+## Level 0: Create your own Content
 
 Let's keep going. Now create a new story to publish on your new antifa-cms webserver. Don't worry about what it looks like, let's just push a story to your server. 
 
@@ -474,7 +474,7 @@ The "git pull" got the latest code changes. The "composer update" does something
 
 If you created markdown named "firststory.md," the URL to your new story is http://43.31.301.90/story/firststory. If your IP address is not 43.31.301.90, change that to whatever your public IP address for your new EC2.
 
-### Level 0: Setup auto-publish
+## Level 0: Setup auto-publish
 
 While it's fun to login to a server and run the above commands to publish your new or update website content, it shouldn't be required. 
 
@@ -500,11 +500,11 @@ This means that every 10 minutes every day of the week of every month, run that 
 
 Save that crontab, and you're all set to auto-publish changes that are committed to the main branch in GitHub.com. The branch is a key point to note. Only changes in the main branch will be deployed to the server. That means that you can create different branches in GitHub.com to work on content, or presentation, but those changes won't deploy to production until the changes are merged to the main branch. To leverage the full power of branching, you need to be able to run your website on your laptop or desktop. That's what the Level 1 training covers.
 
-### Level 0: Point your domain
+## Level 0: Point your domain
 
 Technically you don't have to do this, you could just access your website with the random Amazon AWS domain, but I'm assuming that we're building a real website here.
 
-### Level 0: SSL Certificate
+## Level 0: SSL Certificate
 
 For this tutorial, I'm going to use a free SSL certificate from Let's Encrypt. Unless you plan on going big time big with your website, the Let's Encrypt free cert might be good enough. There are rate limits on these certs.
 

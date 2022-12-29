@@ -186,8 +186,6 @@ Doing so will also install a bunch of other stuff like the Apache webserver, we 
 Do you want to continue? [Y/n] y
 ```
 
-When PHP finishes installing, you should have a working webserver. It won't be working the way we want it to work, but it should work.
-
 Now let's do some tweaking to our Apache webserver.
 
 Our cms needs to have an Apache module activate called mod_rewrite. The module is already on your server, it just needs to be activated. To activate mod_rewrite, createa symlink with the below command as root (sudo su -)

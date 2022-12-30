@@ -15,6 +15,7 @@ These are instructions to build a website using existing off-the-shelf software 
   - [Level 0: Setup auto-publish](#level-0-setup-auto-publish)
   - [Level 0: Point your domain](#level-0-point-your-domain)
   - [Level 0: SSL Certificate](#level-0-ssl-certificate)
+- [Design Your Website](#design-your-website)
 - [Level 1](#level-1)
 - [Vocabulary](#vocabulary)
   - [Apache Webserver](#apache-webserver)
@@ -512,9 +513,29 @@ If you want to purchase your own cert, I purchase SSL certificates from this com
 
 Honestly, most people aren't going to care which SSL cert you use. However, if you skip the SSL cert and just run your website unencrypted, you will get penalized by search engines and many browsers will flag your website is potentially dangerous, and not in a good way.
 
+# Design Your Website
+
+I can't help you design your website. You can see by my example website, and by looking at my public websites that I don't know anything about web design. I'm an engineer. 
+
+However, with antifa-cms, you don't need to run a hideous website. At the end of the day, we're talking about html, some images and css. 
+
+All of the presentation - the UI - is located in the themes directory. The default theme is antifa-cms-theme. You're more than welcome to use that theme, but it's basic af.
+
+With antifa-cms, you are only limited by your own imagination and skills. Build your own theme, and make your website look like your own creation. My stuff my be hideous, but it does reflect my personality - simple and functional.
+
+![Screenshot of antifa-cms-theme story](assets/antif-cms-basic-af.jpg)
+
+One of the real benefits of antifa-cms, and the underlying Pico CMS application is that you can make a truly unique website. If you've ever made a Wordpress website, you know that to make it look like it's not another Wordpress site, you have to put a lot of work into it.
+
+If you want to spend some time learning how to buid Pico CMS themes, check out the community themes that are available for free. Try to find one that looks sort of like what you want and then tweak it to make it your own.
+
+If you are going to get into designing your own themes and plugins, you need the Level 1 training. That gets you setup with your website running on your laptop or desktop. That allows you to hammer away at the code and no one needs to know about it. Once you get something that's cool, push it to GitHub and let's see it.
+
 # Level 1
 
-This is not yet written. It's not necessarily necessary, but setting up your website to run your local laptop or desktop is vastly better than doing everything via GitHub.com. That's my opinion. As an engineer, setting everything up locally is the first step. After I got everything working locally, I would setup my production webserver and deploy it.
+THIS SECTION ISN'T COMPLETE. IT'S JUST NOTES AT THIS POINT -- DEC. 29, 2022
+
+This is not yet written. It's not necessarily necessary, but setting up your website to run your local laptop or desktop is vastly better than ddoing everything via GitHub.com. That's my opinion. As an engineer, setting everything up locally is the first step. After I got everything working locally, I would setup my production webserver and deploy it.
 
 The reason I didn't start here for antifa-cms is because you don't need to run your website locally. You literally can do everything via GitHub.com. Since I'm trying to reach people who are not super technical, it made sense to me to start with the GitHub.com approach. 
 

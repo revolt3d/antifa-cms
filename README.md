@@ -4,9 +4,11 @@ This is a recipe. It's a tech recipe. With the proper ingredients, I'm going to 
 
 When this recipe is done and baked, you will have a functioning web server running your own custom website.
 
-Why? Why not just use one of the gazillion hosting web site building services, like wordpress.com? 
+Why? Why not just use one of the gazillion web site building and hosting services, like wordpress.com? 
 
-For me, it's about control and cost. With this recipe, you have complete and total control over the website look and feel, how it functions, what it does and how it does it. This recipe demonstrates how to setup a very simple website, which is adequate for my needs, there's nothing you can't do with your website once it's built. Cost is another factor, depending on how popular your website gets, the ongoing monthly costs are either zero or a couple of dollars a month.
+For me, it's about control and cost. With this recipe, you have complete and total control over the website look and feel, how it functions, what it does and how it does it. This recipe demonstrates how to setup a very simple website, which is adequate for my needs, there's nothing you can't do with your website once it's built. In my opinion, every WordPress site looks like a WordPress site. That's the case with antifa-cms.
+
+Cost is another factor, depending on how popular your website gets, the ongoing monthly costs are either zero or a couple of dollars a month.
 
 This project is called antifa-cms for a reason. I'm an anti-fascist. While it's possible for fascists, or fascist sympathizers to use antifa-cms, the goal is that they will find the name repugnant and not use antifa-cms. If they do use antifa-cms, nothing I can do about it.
 

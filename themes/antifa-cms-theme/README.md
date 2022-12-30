@@ -15,6 +15,8 @@ You absolutely can use this theme for your website and it will probably work jus
 1. You can build your own theme from the ground up.
 2. Modify an existing theme, like this one, to satisfy your needs. 
 
+If you do want to modify this theme or create your own, because antifa-cms is built on Pico CMS, you can find the documentation about themes on this [Pico CMS website](https://picocms.org/docs/#themes).
+
 Don't forget that with antifa-cms, you are only limited by your imagination, and what is currently possible on the Internet right now. Your website doesn't have to be basic af like my websites are, be you.
 
 - Revolt3D

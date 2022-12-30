@@ -61,7 +61,6 @@ DummyPlugin.enabled: false          # Force the plugin "DummyPlugin" to be disab
 CrapChaPlugin.enabled: true # This is a custom plugin that i wrote for antifa-cms. It's an captcha implementation, if you want to use it on form submissions
 Pagination.enabled: true
 pagination_limit: 10
-
 ##
 # Custom
 #

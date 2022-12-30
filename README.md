@@ -1,6 +1,11 @@
 DRAFT December 27, 2022 THIS IS NOT COMPLETE YET, BUT IT'S GETTING THERE
 
 These are instructions to build a website using existing off-the-shelf software and no programming skills. This recipe builds out more than merely a website. In the end, you will have a complete content management and publishing system.
+
+This project is called antifa-cms. While it's certainly possible for a fascist to use this application and documentation, it's frowned upon. On the other hand, you don't need to be out in the streets punching Nazis in the face to be anti-fascist. I'm sure the vast majority of people are anti-fascist (antifa). 
+
+It doesn't matter though, all are welcome here. This is a safe space.
+
 - [About Me](#about-me)
 - [Getting Started](#getting-started)
 - [Level 0](#level-0)

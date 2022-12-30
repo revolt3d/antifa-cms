@@ -65,4 +65,4 @@ pagination_limit: 10
 ##
 # Custom
 #
-footer_message: 'If you wanted there to be a footer message, you could put something in here. But you do not need a footer message. This is just showing you this sort of custom config variable works.'
+footer_message: 'If you wanted there to be a footer message, you could put something in here. But you do not need a footer message. This is just showing you how this sort of custom config variable works.'

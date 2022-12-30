@@ -6,7 +6,7 @@ When this recipe is done and baked, you will have a functioning web server runni
 
 Why? Why not just use one of the gazillion web site building and hosting services, like wordpress.com? 
 
-For me, it's about control and cost. With this recipe, you have complete and total control over the website look and feel, how it functions, what it does and how it does it. This recipe demonstrates how to setup a very simple website, which is adequate for my needs, however, there's nothing you can't do with your website once it's built. In my opinion, every WordPress site looks like a WordPress site. That's the case with antifa-cms.
+For me, it's about control and cost. With this recipe, you have complete and total control over the website look and feel, how it functions, what it does and how it does it. This recipe demonstrates how to setup a very simple website, which is adequate for my needs, however, there's nothing you can't do with your website once it's built. In my opinion, every WordPress site looks like a WordPress site. That's not the case with antifa-cms.
 
 Cost is another factor, depending on how popular your website gets, the ongoing monthly costs are either zero or a couple of dollars a month.
 

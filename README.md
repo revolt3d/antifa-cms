@@ -1,6 +1,6 @@
 # Welcome to antifa-cms
 
-This is a recipe. I's a tech recipe. With the proper ingredients, I'm going to show you how to build your own website running on your own server. With this web server, you can publish whatever content you want. It could be a website about your organization, or your cat. 
+This is a recipe. It's a tech recipe. With the proper ingredients, I'm going to show you how to build your own website running on your own server. With this web server, you can publish whatever content you want. It could be a website about your organization, or your cat. 
 
 When this recipe is done and baked, you will have a functioning web server running your own custom website.
 

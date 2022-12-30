@@ -436,7 +436,7 @@ First thing you need to do is add the story meta data mentioned above.
 Title: My First Story
 Description: It feels so good to get things done.
 Author: Penny Lane
-Date: 2021-12-22 10:31:03
+Date: 2022-12-22 10:31
 Template: story
 ---
 ```
@@ -450,7 +450,7 @@ Now let's add our unique content to this story.
 Title: My First Story
 Description: It feels so good to get things done.
 Author: Penny Lane
-Date: 2021-12-22 10:31:03
+Date: 2022-12-22 10:31
 Template: story
 ---
 

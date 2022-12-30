@@ -1,3 +1,5 @@
+# Welcome to antifa-cms
+
 This is a recipe. I's a tech recipe. With the proper ingredients, I'm going to show you how to build your own website running on your own server. With this web server, you can publish whatever content you want. It could be a website about your organization, or your cat. 
 
 When this recipe is done and baked, you will have a functioning web server running your own custom website.
@@ -8,6 +10,7 @@ For me, it's about control and cost. With this recipe, you have complete and tot
 
 This project is called antifa-cms for a reason. I'm an anti-fascist. While it's possible for fascists, or fascist sympathizers to use antifa-cms, the goal is that they will find the name repugnant and not use antifa-cms. If they do use antifa-cms, nothing I can do about it.
 
+- [Welcome to antifa-cms](#welcome-to-antifa-cms)
 - [About Me](#about-me)
 - [Getting Started](#getting-started)
 - [Level 0](#level-0)

@@ -539,7 +539,7 @@ With antifa-cms, you are only limited by your own imagination and skills. Build 
 
 One of the real benefits of antifa-cms, and the underlying Pico CMS application is that you can make a truly unique website. If you've ever made a Wordpress website, you know that to make it look like it's not another Wordpress site, you have to put a lot of work into it.
 
-If you want to spend some time learning how to buid Pico CMS themes, check out the community themes that are available for free. Try to find one that looks sort of like what you want and then tweak it to make it your own.
+If you want to spend some time learning how to buid Pico CMS themes, check out the [community themes](https://picocms.org/themes/) that are available for free. Try to find one that looks sort of like what you want and then tweak it to make it your own.
 
 If you are going to get into designing your own themes and plugins, you need the Level 1 training. That gets you setup with your website running on your laptop or desktop. That allows you to hammer away at the code and no one needs to know about it. Once you get something that's cool, push it to GitHub and let's see it.
 

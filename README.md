@@ -1,8 +1,12 @@
-This a recipe. It's a tech recipe. I'm going to show you how to  to build a website using existing off-the-shelf software and no programming skills. This recipe builds out more than merely a website. In the end, you will have a complete content management and publishing system.
+This is a recipe. I's a tech recipe. With the proper ingredients, I'm going to show you how to build your own website running on your own server. With this web server, you can publish whatever content you want. It could be a website about your organization, or your cat. 
 
-This project is called antifa-cms. While it's certainly possible for a fascist to use this application and documentation, it's frowned upon. On the other hand, you don't need to be out in the streets punching Nazis in the face to be anti-fascist. I'm sure the vast majority of people are anti-fascist (antifa). 
+When this recipe is done and baked, you will have a functioning web server running your own custom website.
 
-It doesn't matter though, all are welcome here. This is a safe space.
+Why? Why not just use one of the gazillion hosting web site building services, like wordpress.com? 
+
+For me, it's about control and cost. With this recipe, you have complete and total control over the website look and feel, how it functions, what it does and how it does it. This recipe demonstrates how to setup a very simple website, which is adequate for my needs, there's nothing you can't do with your website once it's built. Cost is another factor, depending on how popular your website gets, the ongoing monthly costs are either zero or a couple of dollars a month.
+
+This project is called antifa-cms for a reason. I'm an anti-fascist. While it's possible for fascists, or fascist sympathizers to use antifa-cms, the goal is that they will find the name repugnant and not use antifa-cms. If they do use antifa-cms, nothing I can do about it.
 
 - [About Me](#about-me)
 - [Getting Started](#getting-started)

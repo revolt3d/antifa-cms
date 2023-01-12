@@ -521,9 +521,10 @@ Technically you don't have to do this, you could just access your website with t
 
 For this tutorial, I'm going to use a free SSL certificate from Let's Encrypt. Unless you plan on going big time big with your website, the Let's Encrypt free cert might be good enough. 
 
-To install a Let's Encrypt certificate use certbot.
+To install a Let's Encrypt certificate use certbot as root (sudo su -).
 
 ```
+apt-get install certbot
 certbot --apache -d example.com
 ```
 

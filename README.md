@@ -28,7 +28,7 @@ This project is called antifa-cms for a reason. I'm an anti-fascist. While it's 
   - [Level 0: Point your domain](#level-0-point-your-domain)
   - [Level 0: SSL Certificate](#level-0-ssl-certificate)
 - [Design Your Website](#design-your-website)
-- [Level 1](#level-1)
+- [Server Maintenance](#server-maintenance)
 - [Vocabulary](#vocabulary)
   - [Apache Webserver](#apache-webserver)
   - [Amazon AWS](#amazon-aws)
@@ -547,7 +547,7 @@ If you want to spend some time learning how to buid Pico CMS themes, check out t
 
 If you are going to get into designing your own themes and plugins, you need the Level 1 training. That gets you setup with your website running on your laptop or desktop. That allows you to hammer away at the code and no one needs to know about it. Once you get something that's cool, push it to GitHub and let's see it.
 
-## Level 0: Server Maintenance
+# Server Maintenance
 
 Now that you own a server, you do need to keep it up-to-date. At the bare minimum, run these commands as root a couple of times a month.
 

@@ -519,11 +519,15 @@ Technically you don't have to do this, you could just access your website with t
 
 ## Level 0: SSL Certificate
 
-For this tutorial, I'm going to use a free SSL certificate from Let's Encrypt. Unless you plan on going big time big with your website, the Let's Encrypt free cert might be good enough. There are rate limits on these certs.
+For this tutorial, I'm going to use a free SSL certificate from Let's Encrypt. Unless you plan on going big time big with your website, the Let's Encrypt free cert might be good enough. 
 
-If you want to purchase your own cert, I purchase SSL certificates from this company called ssls.com. A cheap cert can be as little like $4 a year. These are low assurance certificates, which means they will encrypt data, but the end user doesn't have a ton of confidence in the webserver running that cert or you. 
+To install a Let's Encrypt certificate use certbot.
 
-Honestly, most people aren't going to care which SSL cert you use. However, if you skip the SSL cert and just run your website unencrypted, you will get penalized by search engines and many browsers will flag your website is potentially dangerous, and not in a good way.
+```
+certbot --apache -d example.com
+```
+
+Replace example.com with your domain name. This command should work and install a cert for your apache server. If there's an issue installing it, that's what Stackoverflow is for. 
 
 # Design Your Website
 
@@ -542,6 +546,8 @@ One of the real benefits of antifa-cms, and the underlying Pico CMS application 
 If you want to spend some time learning how to buid Pico CMS themes, check out the [community themes](https://picocms.org/themes/) that are available for free. Try to find one that looks sort of like what you want and then tweak it to make it your own.
 
 If you are going to get into designing your own themes and plugins, you need the Level 1 training. That gets you setup with your website running on your laptop or desktop. That allows you to hammer away at the code and no one needs to know about it. Once you get something that's cool, push it to GitHub and let's see it.
+
+THIS IS THE END OF THE LEVEL O HOW-TO EVERYTHING SHOULD BE WORKING NOW.
 
 # Level 1
 

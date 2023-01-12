@@ -547,17 +547,21 @@ If you want to spend some time learning how to buid Pico CMS themes, check out t
 
 If you are going to get into designing your own themes and plugins, you need the Level 1 training. That gets you setup with your website running on your laptop or desktop. That allows you to hammer away at the code and no one needs to know about it. Once you get something that's cool, push it to GitHub and let's see it.
 
+## Level 0: Server Maintenance
+
+Now that you own a server, you do need to keep it up-to-date. At the bare minimum, run these commands as root a couple of times a month.
+
+```
+apt-get update
+```
+
+```
+apt-get upgrade
+```
+
+If you don't do this, your server will probably get hacked at some point. While there's nothing on the server that is necessarily harmful if anyone got access to it, it's webpage content that you're already publishing. However, you don't want to be a bad citizen of the Internet. And I'm pretty sure Amazon turns your server off if you let it drift way off on updates. If you update regularly, it's trivial. If you wait 2 years, it will be more work.
+
 THIS IS THE END OF THE LEVEL O HOW-TO EVERYTHING SHOULD BE WORKING NOW.
-
-# Level 1
-
-THIS SECTION ISN'T COMPLETE. IT'S JUST NOTES AT THIS POINT -- DEC. 29, 2022
-
-This is not yet written. It's not necessarily necessary, but setting up your website to run your local laptop or desktop is vastly better than ddoing everything via GitHub.com. That's my opinion. As an engineer, setting everything up locally is the first step. After I got everything working locally, I would setup my production webserver and deploy it.
-
-The reason I didn't start here for antifa-cms is because you don't need to run your website locally. You literally can do everything via GitHub.com. Since I'm trying to reach people who are not super technical, it made sense to me to start with the GitHub.com approach. 
-
-The instruction won't be terribly difficult. It's mostly setting up Docker on your local computer and running a couple of commands.
 
 # Vocabulary
 

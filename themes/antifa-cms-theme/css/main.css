@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px; margin-left:0px}
+#mc_embed_signup form{margin-left:0px;}
+
+html, body { height: 100%; }
+
+#content {
+    padding-top:0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom:0.5em;
+}
+
+#header { background: #000; }
+
+#title, #logo {
+    padding: 0;
+}
+
+#title * { margin: 0; color: #ff3333; }
+#title p { font-style: italic; }
+#title {
+    font-family: Courier, monospace;
+    font-size: 2em;
+    padding-left:.5em;
+}
+
+#nav {
+    padding: 0 1em 0 0;
+    text-align: right;
+}
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#nav ul li {
+    display: inline-block;
+    margin-left: 1em;
+    padding: 0;
+    font-weight: bold;
+}
+
+#nav a, #nav-toggle { color: #ff3333; }
+#nav .active a, #nav a:hover, #nav-toggle:hover { color: rgb(255, 0, 0); }
+
+#nav-toggle { display: none; }
+
+/*** BASIC LAYOUT: FOOTER ***/
+
+header {
+
+}
+
+footer {
+    background: #707070;
+    color: #C0C0C0;
+    padding: 1em;
+}
+
+footer a { color: #ddd; }
+footer a:hover { color: #fff; }
+
+footer p {
+}
+
+
+/*** TYPOGRAPHY ***/
+
+html { font-size: 16px; }
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-variant-ligatures: common-ligatures;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    color: #444;
+    background-color: #efefef;
+}
+
+p, td, th, li, dd {
+    text-align: justify;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+}
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p, hr, table, .table-responsive, ol, ul, dl, dd, pre, blockquote, fieldset {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #2EAE9B;
+    text-decoration: none;
+    -webkit-transition: color .2s ease-in;
+            transition: color .2s ease-in;
+}
+a:hover { color: #444; }
+
+#pubdate {
+    font-family: Courier, monospace;
+    font-size:1em;
+}
+
+h1, h2, h3, h4, h6 {
+    margin-bottom: 0.6em;
+    font-weight: bold;
+    color: #333;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1rem; font-style:italic; }
+h3 { font-size: .9rem; font-weight:normal; }
+h4 { font-size: .9rem; font-weight:normal;}
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; font-weight: normal; font-style: italic; }
+
+img { 
+    padding: 1em;
+}
+
+hr {
+    border: 0.15em solid #f5f5f5;
+    border-radius: 0.3em;
+    background: #f5f5f5;
+}
+
+abbr { text-decoration: underline dotted; }
+
+/*** UTILITIES ***/
+
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-justify { text-align: justify; }
+
+.image { display: block; margin: 0 auto; }
+.image.xsmall { width: 20%; }
+.image.small { width: 40%; }
+.image.large { width: 60%; }
+.image.xlarge { width: 80%; }
+.image.float-left { float: left; margin: 1em 2em 1em 0; }
+.image.float-right { float: right; margin: 1em 0 1em 2em; }
+.image img { display: block; width: 100%; }
+
+
+
+/*** LISTS ***/
+
+ol, ul {
+    list-style-position: outside;
+    list-style:circle;
+    padding-left: 1.5em;
+}
+
+li { padding-left: 0.5em; }
+
+/*** CODE ***/
+
+code {
+    margin: 0 0.1em;
+    padding: 0.1em 0.2em;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    background: #f5f5f5;
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 0.85rem;
+    line-height: 1.9824;
+}
+
+pre {
+    padding: 0 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    background: #f5f5f5;
+}
+pre code {
+    display: block;
+    margin: 0;
+    padding: 1.1111em 0;
+    border: 0 none;
+    background: transparent;
+    overflow-x: auto;
+    line-height: 1.4;
+}
+
+/*** BLOCKQUOTE ***/
+
+blockquote {
+    font-style: italic;
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 0.5em solid #f5f5f5;
+}
+
+/*** FORMS ***/
+
+form {
+    padding-bottom:1em;
+}
+
+label, fieldset legend { font-weight: normal; }
+
+input:not([type="checkbox"]):not([type="radio"]), button, select, textarea, fieldset, fieldset legend {
+    border-radius: 0em;
+    background: #fff;
+    -webkit-transition: none .2s ease-in;
+            transition: none .2s ease-in;
+    -webkit-transition-property: border-color, background, box-shadow;
+            transition-property: border-color, background, box-shadow;
+}
+
+fieldset {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+button {
+    border: 1px solid #ccc;
+}
+
+input:not([type="checkbox"]):not([type="radio"]), button, select, textarea {
+    padding: 0.5em 1em;
+    outline: 0 none;
+    font-size: 1em;
+}
+input:focus:not([type="checkbox"]):not([type="radio"]), button:focus, select:focus, textarea:focus {
+    border-color: #2EAE9B;
+    box-shadow: 0 0 8px #2EAE9B;
+}
+input[type="button"]:focus, input[type="submit"]:focus, input[type="reset"]:focus, button:focus,
+input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+textarea, select[multiple] {
+    vertical-align: bottom;
+    overflow: auto;
+}
+
+fieldset {
+    padding: 1em;
+    background: #f5f5f5;
+}
+
+/*** BASIC LAYOUT: EXTRA SMALL DEVICES ***/
+
+@media (max-width: 767px) {
+    #main { padding: 2em 0 1em; }
+
+    #title, #logo { padding: 2em 1.5em 2em 0; }
+    #logo { height: 8.8em; }
+
+    #nav {
+        clear: both;
+        padding: 0;
+    }
+    #nav ul {
+        padding-bottom: 1em;
+    }
+    #nav ul li {
+        display: block;
+        margin-left: 0;
+        text-align: center;
+    }
+    #nav ul li a {
+        display: block;
+        padding: 0.5em 0;
+    }
+
+    .js #nav-toggle {
+        display: block;
+        float: right;
+        width: 2em;
+        margin: 0.6667em 0;
+        font-size: 1.5rem;
+        line-height: 2em;
+        text-align: center;
+        cursor: pointer;
+    }
+    .js #nav-toggle > * { vertical-align: middle;  }
+
+    #footer p { padding: 1em 0; }
+}
+
+@media (max-width: 767px) {
+    .image.xsmall { width: 60%; }
+    .image.small { width: 80%; }
+    .image.large, .image.xlarge { width: 100%; }
+    .image.float-left, .image.float-right { float: none; margin: 0 auto; }
+}
